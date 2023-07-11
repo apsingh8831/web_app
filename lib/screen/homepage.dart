@@ -112,7 +112,8 @@ class _MyStoreWebUIState extends State<MyStoreWebUI> {
                 ),
                 child: TextField(
                   decoration: InputDecoration(
-                      contentPadding: EdgeInsets.only(top: 1),
+
+                      contentPadding: EdgeInsets.only(bottom: 5),
                       hintText: "Find Car, Mobile Phone and more",
                       prefixIcon: Icon(
                         Icons.search,
@@ -282,86 +283,89 @@ class _MyStoreWebUIState extends State<MyStoreWebUI> {
                  SizedBox(
                    height: 8,
                  ),
-                 GridView.builder(
-                     physics: NeverScrollableScrollPhysics(),
-                     shrinkWrap: true,
-                     itemCount: Constdata.productDetail.length,
-                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                         crossAxisCount: 4,
-                         mainAxisExtent: 200,
-                         crossAxisSpacing: 10,
-                         mainAxisSpacing: 10),
-                     itemBuilder: (context, index) {
-                       return Stack(children: [
-                         GestureDetector(
-                           onTap: () {
+                 Padding(
+                   padding: const EdgeInsets.all(8.0),
+                   child: GridView.builder(
+                       physics: NeverScrollableScrollPhysics(),
+                       shrinkWrap: true,
+                       itemCount: Constdata.productDetail.length,
+                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                           crossAxisCount: 4,
+                           mainAxisExtent: 200,
+                           crossAxisSpacing: 10,
+                           mainAxisSpacing: 10),
+                       itemBuilder: (context, index) {
+                         return Stack(children: [
+                           GestureDetector(
+                             onTap: () {
 
-                           },
-                           child: Container(
-                             decoration: BoxDecoration(
-                                 borderRadius: BorderRadius.circular(10),
-                                 border: Border.all(color: Colors.grey,width: 2)
-                             ),
-                             child: Padding(
-                               padding: const EdgeInsets.only(left: 6,top: 5),
-                               child: Column(
-                                 crossAxisAlignment:
-                                 CrossAxisAlignment.start,
-                                 children: [
-                                   Container(
-                                       height: ResponsiveRatio().height(context, 0.12),
-                                       width:  ResponsiveRatio().width(context, 1),
-                                       child: Image.asset(Constdata.productDetail[index]['image'])),
-                                   SizedBox(
-                                     height: 8,
-                                   ),
-                                   CustomPoppinsText(text: "₹ ${Constdata.productDetail[index]['price']}",fontSize: 18,fontWeight: FontWeight.w500,),
-                                   Container(
+                             },
+                             child: Container(
+                               decoration: BoxDecoration(
+                                   borderRadius: BorderRadius.circular(10),
+                                   border: Border.all(color: Colors.grey,width: 2)
+                               ),
+                               child: Padding(
+                                 padding: const EdgeInsets.only(left: 6,top: 5),
+                                 child: Column(
+                                   crossAxisAlignment:
+                                   CrossAxisAlignment.start,
+                                   children: [
+                                     Container(
+                                         height: ResponsiveRatio().height(context, 0.12),
+                                         width:  ResponsiveRatio().width(context, 1),
+                                         child: Image.asset(Constdata.productDetail[index]['image'])),
+                                     SizedBox(
+                                       height: 8,
+                                     ),
+                                     CustomPoppinsText(text: "₹ ${Constdata.productDetail[index]['price']}",fontSize: 18,fontWeight: FontWeight.w500,),
+                                     Container(
 
+                                         child: CustomPoppinsText(
+                                           text: "${Constdata.productDetail[index]['title']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 13,
+                                         )
+                                     ),
+                                     Container(
+                                       width:  ResponsiveRatio().width(context, 0.5),
                                        child: CustomPoppinsText(
-                                         text: "${Constdata.productDetail[index]['title']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 13,
-                                       )
-                                   ),
-                                   Container(
-                                     width:  ResponsiveRatio().width(context, 0.5),
-                                     child: CustomPoppinsText(
-                                       text: "${Constdata.productDetail[index]['name']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 11,color: textColor,
-                                     ),),
+                                         text: "${Constdata.productDetail[index]['name']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 11,color: textColor,
+                                       ),),
 
-                                   Row(
-                                     children: [
-                                       Icon(
-                                         Icons.location_on_outlined,
-                                         size: 20,
-                                       ),
-                                       Container(
-                                           child: Flexible(
-                                             child: CustomPoppinsText(
-                                               text: "${Constdata.productDetail[index]['location']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 11,color: textColor,
-                                             ),))
-                                     ],
-                                   ),
-                                 ],
+                                     Row(
+                                       children: [
+                                         Icon(
+                                           Icons.location_on_outlined,
+                                           size: 20,
+                                         ),
+                                         Container(
+                                             child: Flexible(
+                                               child: CustomPoppinsText(
+                                                 text: "${Constdata.productDetail[index]['location']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 11,color: textColor,
+                                               ),))
+                                       ],
+                                     ),
+                                   ],
+                                 ),
                                ),
                              ),
                            ),
-                         ),
-                         Positioned(
-                           right: 20,
-                           top: 10,
-                           child: GestureDetector(
-                             onTap: (){
-                             },
-                             child: CircleAvatar(
-                                 backgroundColor: Colors.white,
-                                 child: Icon(
-                                   Icons.favorite ,
-                                 )),
-                           ),
+                           Positioned(
+                             right: 20,
+                             top: 10,
+                             child: GestureDetector(
+                               onTap: (){
+                               },
+                               child: CircleAvatar(
+                                   backgroundColor: Colors.white,
+                                   child: Icon(
+                                     Icons.favorite ,
+                                   )),
+                             ),
 
-                         )
-                       ]);
-                     })
+                           )
+                         ]);
+                       }),
+                 )
                ],
              ),
            )
@@ -575,90 +579,93 @@ class _MyStoreMobState extends State<MyStoreMob> {
                   SizedBox(
                     height: 8,
                   ),
-                  GridView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: Constdata.productDetail.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: Responsive.isLargeTab(context)
-                              ? 4
-                              : Responsive.isSmallTab(context)
-                              ? 3
-                              : 2,
-                          mainAxisExtent: Responsive.isLargeTab(context)?267:Responsive.isSmallTab(context)?210:Responsive.isMobile(context)?210:220,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10),
-                      itemBuilder: (context, index) {
-                        return Stack(children: [
-                          GestureDetector(
-                            onTap: () {
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GridView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: Constdata.productDetail.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: Responsive.isLargeTab(context)
+                                ? 4
+                                : Responsive.isSmallTab(context)
+                                ? 3
+                                : 2,
+                            mainAxisExtent: Responsive.isLargeTab(context)?270:Responsive.isSmallTab(context)?230:Responsive.isMobile(context)?210:220,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10),
+                        itemBuilder: (context, index) {
+                          return Stack(children: [
+                            GestureDetector(
+                              onTap: () {
 
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(color: Colors.grey,width: 2)
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 6,top: 5),
-                                child: Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                        height: ResponsiveRatio().height(context, 0.12),
-                                        width:  ResponsiveRatio().width(context, 1),
-                                        child: Image.asset(Constdata.productDetail[index]['image'])),
-                                    SizedBox(
-                                      height: 8,
-                                    ),
-                                    CustomPoppinsText(text: "₹ ${Constdata.productDetail[index]['price']}",fontSize: 18,fontWeight: FontWeight.w500,),
-                                    Container(
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(color: Colors.grey,width: 2)
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 6,top: 5),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                          height: ResponsiveRatio().height(context, 0.12),
+                                          width:  ResponsiveRatio().width(context, 1),
+                                          child: Image.asset(Constdata.productDetail[index]['image'])),
+                                      SizedBox(
+                                        height: 8,
+                                      ),
+                                      CustomPoppinsText(text: "₹ ${Constdata.productDetail[index]['price']}",fontSize: 18,fontWeight: FontWeight.w500,),
+                                      Container(
 
+                                          child: CustomPoppinsText(
+                                            text: "${Constdata.productDetail[index]['title']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 13,
+                                          )
+                                      ),
+                                      Container(
+                                        width:  ResponsiveRatio().width(context, 0.5),
                                         child: CustomPoppinsText(
-                                          text: "${Constdata.productDetail[index]['title']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 13,
-                                        )
-                                    ),
-                                    Container(
-                                      width:  ResponsiveRatio().width(context, 0.5),
-                                      child: CustomPoppinsText(
-                                        text: "${Constdata.productDetail[index]['name']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 11,color: textColor,
-                                      ),),
+                                          text: "${Constdata.productDetail[index]['name']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 11,color: textColor,
+                                        ),),
 
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.location_on_outlined,
-                                          size: 20,
-                                        ),
-                                        Container(
-                                            child: Flexible(
-                                              child: CustomPoppinsText(
-                                                text: "${Constdata.productDetail[index]['location']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 11,color: textColor,
-                                              ),))
-                                      ],
-                                    ),
-                                  ],
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            Icons.location_on_outlined,
+                                            size: 20,
+                                          ),
+                                          Container(
+                                              child: Flexible(
+                                                child: CustomPoppinsText(
+                                                  text: "${Constdata.productDetail[index]['location']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 11,color: textColor,
+                                                ),))
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                              Positioned(
-                              right: 20,
-                              top: 10,
-                              child: GestureDetector(
-                                onTap: (){
-                                },
-                                child: CircleAvatar(
-                                    backgroundColor: Colors.white,
-                                    child: Icon(
-                                    Icons.favorite ,
-                                    )),
-                              ),
+                                Positioned(
+                                right: 20,
+                                top: 10,
+                                child: GestureDetector(
+                                  onTap: (){
+                                  },
+                                  child: CircleAvatar(
+                                      backgroundColor: Colors.white,
+                                      child: Icon(
+                                      Icons.favorite ,
+                                      )),
+                                ),
 
-                          )
-                        ]);
-                      })
+                            )
+                          ]);
+                        }),
+                  )
                 ],
               ),
             )
