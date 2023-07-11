@@ -1,9 +1,8 @@
 // import 'dart:html';
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:webapp_clone/screen/categories/detailed_page.dart';
 
 import '../../Constant/custom_button.dart';
 import '../Constant/customPoppinsText.dart';
@@ -11,9 +10,6 @@ import '../constant/colors.dart';
 import '../constant/const_data.dart';
 import '../constant/resposive.dart';
 import '../model.dart';
-
-
-
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -89,8 +85,9 @@ class _MyStoreWebUIState extends State<MyStoreWebUI> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.orange,statusBarIconBrightness: Brightness.light),
-
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Colors.orange,
+            statusBarIconBrightness: Brightness.light),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -112,7 +109,6 @@ class _MyStoreWebUIState extends State<MyStoreWebUI> {
                 ),
                 child: TextField(
                   decoration: InputDecoration(
-
                       contentPadding: EdgeInsets.only(bottom: 5),
                       hintText: "Find Car, Mobile Phone and more",
                       prefixIcon: Icon(
@@ -126,7 +122,6 @@ class _MyStoreWebUIState extends State<MyStoreWebUI> {
                 ),
               ),
             ),
-
           ],
         ),
         actions: [
@@ -136,315 +131,25 @@ class _MyStoreWebUIState extends State<MyStoreWebUI> {
               children: [
                 Icon(Icons.location_on_outlined, color: Colors.black),
                 Container(
-                    width:  ResponsiveRatio().width(context, 0.18),
-                    child:CustomPoppinsText(text: "Hindon Residence",fontSize: 15,maxLine: 1,textOverflow: TextOverflow.ellipsis,color: textColor,)),
+                    width: ResponsiveRatio().width(context, 0.18),
+                    child: CustomPoppinsText(
+                      text: "Hindon Residence",
+                      fontSize: 15,
+                      maxLine: 1,
+                      textOverflow: TextOverflow.ellipsis,
+                      color: textColor,
+                    )),
               ],
             ),
           ),
         ],
       ),
       body: SingleChildScrollView(
-       child:
-       Column(
-         children: [
-
-           SizedBox(height: 10,),
-           Container(
-             height: ResponsiveRatio().height(context, 0.3),
-             decoration: BoxDecoration(color: Color(0xFF1C73FD)),
-             child: Column(
-               children: [
-                 SizedBox(
-                   height: 10,
-                 ),
-                 Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child: Image.asset(
-                     "asset/images/img1.gif",
-                     height: ResponsiveRatio().height(context, 0.12),width: double.infinity,
-                   ),
-                 ),
-                 Spacer(),
-                 Padding(
-                   padding:
-                   const EdgeInsets.only(left: 15, right: 15, bottom: 15),
-                   child: Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: [
-                       Expanded(
-                           child:
-                           CustomButton1(
-                             text: "Buy Car", onTap: () {
-                             // Navigator.push(
-                             //     context,
-                             //     MaterialPageRoute(
-                             //         builder: (context) => RecommendedCars()));
-                           },
-                           )
-                       ),
-                       SizedBox(
-                         width: 18,
-                       ),
-                       Expanded(
-                           child: CustomButton1(
-                             text: "Sell Car",
-                             onTap: (){
-                               // Navigator.push(
-                               //     context,
-                               //     MaterialPageRoute(
-                               //         builder: (context) => Sell()));
-                             },
-                           )
-                       ),
-                     ],
-                   ),
-                 ),
-               ],
-             ),
-           ),
-           Container(
-             color: Colors.white,
-             child: Column(
-               children: [
-                 Padding(
-                   padding: const EdgeInsets.all(15),
-                   child: Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: [
-                       CustomPoppinsText(text: "Browse categories",fontSize: 16,),
-                       InkWell(
-                           onTap: () {
-                             // Navigator.push(
-                             //     context,
-                             //     MaterialPageRoute(
-                             //         builder: (context) => SeeAll()));
-                           },
-                           child: CustomPoppinsText(
-                             text: "See all",fontSize: 16,fontWeight: FontWeight.w600,
-                           )
-
-                       )
-                     ],
-                   ),
-                 ),
-                 SizedBox(height: 10,),
-                 Padding(
-                   padding: const EdgeInsets.only(left: 8.0, right: 8),
-                   child: Container(
-                     height: ResponsiveRatio().height(context, 0.14),
-
-                     child: ListView.builder(
-                         itemCount: Constdata.list.length,
-                         physics: ScrollPhysics(),
-                         scrollDirection: Axis.horizontal,
-                         shrinkWrap: true,
-                         itemBuilder: (context, index) {
-                           return Padding(
-                             padding: const EdgeInsets.only(left: 8),
-                             child: GestureDetector(
-                               onTap: () {
-                               },
-                               child: Container(
-                                 width:  ResponsiveRatio().width(context, 0.12),
-                                 child: Column(
-                                   crossAxisAlignment:
-                                   CrossAxisAlignment.center,
-                                   children: [
-                                     Image.asset(
-                                       Constdata.list[index]['image']!,
-                                       height:  ResponsiveRatio().height(context, 0.05),
-                                     ),
-                                     SizedBox(
-                                       height: 10,
-                                     ),
-                                     CustomPoppinsText(text: Constdata.list[index]['name']!,fontSize: 10,textAlign: TextAlign.center,maxLine: 2,)
-                                   ],
-                                 ),
-                               ),
-                             ),
-                           );
-                         }),
-                   ),
-                 ),
-               ],
-             ),
-           ),
-           Container(
-             color: Colors.white,
-             child: Column(
-               crossAxisAlignment: CrossAxisAlignment.start,
-               children: [
-                 Padding(
-                     padding: const EdgeInsets.only(left: 15, top: 20),
-                     child: CustomPoppinsText(
-                       text: "Fresh recommendation",fontSize: 18,
-                     )
-                 ),
-                 SizedBox(
-                   height: 8,
-                 ),
-                 Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child: GridView.builder(
-                       physics: NeverScrollableScrollPhysics(),
-                       shrinkWrap: true,
-                       itemCount: Constdata.productDetail.length,
-                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                           crossAxisCount: 4,
-                           mainAxisExtent: 200,
-                           crossAxisSpacing: 10,
-                           mainAxisSpacing: 10),
-                       itemBuilder: (context, index) {
-                         return Stack(children: [
-                           GestureDetector(
-                             onTap: () {
-
-                             },
-                             child: Container(
-                               decoration: BoxDecoration(
-                                   borderRadius: BorderRadius.circular(10),
-                                   border: Border.all(color: Colors.grey,width: 2)
-                               ),
-                               child: Padding(
-                                 padding: const EdgeInsets.only(left: 6,top: 5),
-                                 child: Column(
-                                   crossAxisAlignment:
-                                   CrossAxisAlignment.start,
-                                   children: [
-                                     Container(
-                                         height: ResponsiveRatio().height(context, 0.12),
-                                         width:  ResponsiveRatio().width(context, 1),
-                                         child: Image.asset(Constdata.productDetail[index]['image'])),
-                                     SizedBox(
-                                       height: 8,
-                                     ),
-                                     CustomPoppinsText(text: "₹ ${Constdata.productDetail[index]['price']}",fontSize: 18,fontWeight: FontWeight.w500,),
-                                     Container(
-
-                                         child: CustomPoppinsText(
-                                           text: "${Constdata.productDetail[index]['title']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 13,
-                                         )
-                                     ),
-                                     Container(
-                                       width:  ResponsiveRatio().width(context, 0.5),
-                                       child: CustomPoppinsText(
-                                         text: "${Constdata.productDetail[index]['name']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 11,color: textColor,
-                                       ),),
-
-                                     Row(
-                                       children: [
-                                         Icon(
-                                           Icons.location_on_outlined,
-                                           size: 20,
-                                         ),
-                                         Container(
-                                             child: Flexible(
-                                               child: CustomPoppinsText(
-                                                 text: "${Constdata.productDetail[index]['location']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 11,color: textColor,
-                                               ),))
-                                       ],
-                                     ),
-                                   ],
-                                 ),
-                               ),
-                             ),
-                           ),
-                           Positioned(
-                             right: 20,
-                             top: 10,
-                             child: GestureDetector(
-                               onTap: (){
-                               },
-                               child: CircleAvatar(
-                                   backgroundColor: Colors.white,
-                                   child: Icon(
-                                     Icons.favorite ,
-                                   )),
-                             ),
-
-                           )
-                         ]);
-                       }),
-                 )
-               ],
-             ),
-           )
-         ],
-       ),
-
-      ),
-    );
-  }
-}
-
-class MyStoreMob extends StatefulWidget {
-  const MyStoreMob({Key? key}) : super(key: key);
-
-  @override
-  State<MyStoreMob> createState() => _MyStoreMobState();
-}
-
-class _MyStoreMobState extends State<MyStoreMob> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.orange,statusBarIconBrightness: Brightness.light),
-
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Image.asset(
-          "asset/images/oonzoo.png",
-          height: ResponsiveRatio().height(context, 0.04),
-          // color: orangeColor,
-        ),
-        actions: [
-          Row(
-
-            children: [
-              Icon(Icons.location_on_outlined, color: Colors.black),
-              Container(
-                  width:  ResponsiveRatio().width(context, 0.18),
-                  child:CustomPoppinsText(text: "Hindon Residence",fontSize: 15,maxLine: 1,textOverflow: TextOverflow.ellipsis,color: textColor,)),
-            ],
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              children: [
-                Expanded(child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0,right: 1),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Colors.black,
-                          size: 30,
-                        ),
-                        hintText: "Find Car, Mobile Phone and more abhay",
-                        isDense: true,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8)
-                        )
-                    ),
-                  ),
-                )),
-                Padding(
-                  padding: const EdgeInsets.only(left:8,right: 8.0),
-                  child: Icon(
-                    Icons.notifications_outlined,
-                    size: 30,
-                  ),
-                ),
-
-
-              ],
+            SizedBox(
+              height: 10,
             ),
-            SizedBox(height: 10,),
             Container(
               height: ResponsiveRatio().height(context, 0.3),
               decoration: BoxDecoration(color: Color(0xFF1C73FD)),
@@ -457,41 +162,40 @@ class _MyStoreMobState extends State<MyStoreMob> {
                     padding: const EdgeInsets.all(8.0),
                     child: Image.asset(
                       "asset/images/img1.gif",
-                      height: ResponsiveRatio().height(context, 0.12),width: double.infinity,
+                      height: ResponsiveRatio().height(context, 0.12),
+                      width: double.infinity,
                     ),
                   ),
                   Spacer(),
                   Padding(
                     padding:
-                    const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                        const EdgeInsets.only(left: 15, right: 15, bottom: 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                            child:
-                            CustomButton1(
-                              text: "Buy Car", onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => RecommendedCars()));
-                            },
-                            )
-                        ),
+                            child: CustomButton1(
+                          text: "Buy Car",
+                          onTap: () {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => RecommendedCars()));
+                          },
+                        )),
                         SizedBox(
                           width: 18,
                         ),
                         Expanded(
                             child: CustomButton1(
-                              text: "Sell Car",
-                              onTap: (){
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => Sell()));
-                              },
-                            )
-                        ),
+                          text: "Sell Car",
+                          onTap: () {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => Sell()));
+                          },
+                        )),
                       ],
                     ),
                   ),
@@ -507,7 +211,10 @@ class _MyStoreMobState extends State<MyStoreMob> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        CustomPoppinsText(text: "Browse categories",fontSize: 16,),
+                        CustomPoppinsText(
+                          text: "Browse categories",
+                          fontSize: 16,
+                        ),
                         InkWell(
                             onTap: () {
                               // Navigator.push(
@@ -516,19 +223,20 @@ class _MyStoreMobState extends State<MyStoreMob> {
                               //         builder: (context) => SeeAll()));
                             },
                             child: CustomPoppinsText(
-                              text: "See all",fontSize: 16,fontWeight: FontWeight.w600,
-                            )
-
-                        )
+                              text: "See all",
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ))
                       ],
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0, right: 8),
                     child: Container(
                       height: ResponsiveRatio().height(context, 0.14),
-
                       child: ListView.builder(
                           itemCount: Constdata.list.length,
                           physics: ScrollPhysics(),
@@ -538,22 +246,27 @@ class _MyStoreMobState extends State<MyStoreMob> {
                             return Padding(
                               padding: const EdgeInsets.only(left: 8),
                               child: GestureDetector(
-                                onTap: () {
-                                },
+                                onTap: () {},
                                 child: Container(
-                                  width:  ResponsiveRatio().width(context, 0.12),
+                                  width: ResponsiveRatio().width(context, 0.12),
                                   child: Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Image.asset(
-                                  Constdata.list[index]['image']!,
-                                        height:  ResponsiveRatio().height(context, 0.05),
+                                        Constdata.list[index]['image']!,
+                                        height: ResponsiveRatio()
+                                            .height(context, 0.05),
                                       ),
                                       SizedBox(
                                         height: 10,
                                       ),
-                                      CustomPoppinsText(text: Constdata.list[index]['name']!,fontSize: 10,textAlign: TextAlign.center,maxLine: 2,)
+                                      CustomPoppinsText(
+                                        text: Constdata.list[index]['name']!,
+                                        fontSize: 10,
+                                        textAlign: TextAlign.center,
+                                        maxLine: 2,
+                                      )
                                     ],
                                   ),
                                 ),
@@ -573,9 +286,9 @@ class _MyStoreMobState extends State<MyStoreMob> {
                   Padding(
                       padding: const EdgeInsets.only(left: 15, top: 20),
                       child: CustomPoppinsText(
-                        text: "Fresh recommendation",fontSize: 18,
-                      )
-                  ),
+                        text: "Fresh recommendation",
+                        fontSize: 18,
+                      )),
                   SizedBox(
                     height: 8,
                   ),
@@ -586,51 +299,64 @@ class _MyStoreMobState extends State<MyStoreMob> {
                         shrinkWrap: true,
                         itemCount: Constdata.productDetail.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: Responsive.isLargeTab(context)
-                                ? 4
-                                : Responsive.isSmallTab(context)
-                                ? 3
-                                : 2,
-                            mainAxisExtent: Responsive.isLargeTab(context)?270:Responsive.isSmallTab(context)?230:Responsive.isMobile(context)?210:220,
+                            crossAxisCount: 4,
+                            mainAxisExtent: 200,
                             crossAxisSpacing: 10,
                             mainAxisSpacing: 10),
                         itemBuilder: (context, index) {
                           return Stack(children: [
                             GestureDetector(
                               onTap: () {
-
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailedPage()));
                               },
                               child: Container(
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(color: Colors.grey,width: 2)
-                                ),
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                        color: Colors.grey, width: 2)),
                                 child: Padding(
-                                  padding: const EdgeInsets.only(left: 6,top: 5),
+                                  padding:
+                                      const EdgeInsets.only(left: 6, top: 5),
                                   child: Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                          height: ResponsiveRatio().height(context, 0.12),
-                                          width:  ResponsiveRatio().width(context, 1),
-                                          child: Image.asset(Constdata.productDetail[index]['image'])),
+                                          height: ResponsiveRatio()
+                                              .height(context, 0.12),
+                                          width: ResponsiveRatio()
+                                              .width(context, 1),
+                                          child: Image.asset(Constdata
+                                              .productDetail[index]['image'])),
                                       SizedBox(
                                         height: 8,
                                       ),
-                                      CustomPoppinsText(text: "₹ ${Constdata.productDetail[index]['price']}",fontSize: 18,fontWeight: FontWeight.w500,),
-                                      Container(
-
-                                          child: CustomPoppinsText(
-                                            text: "${Constdata.productDetail[index]['title']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 13,
-                                          )
+                                      CustomPoppinsText(
+                                        text:
+                                            "₹ ${Constdata.productDetail[index]['price']}",
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
                                       ),
                                       Container(
-                                        width:  ResponsiveRatio().width(context, 0.5),
+                                          child: CustomPoppinsText(
+                                        text:
+                                            "${Constdata.productDetail[index]['title']}",
+                                        maxLine: 1,
+                                        textOverflow: TextOverflow.ellipsis,
+                                        fontSize: 13,
+                                      )),
+                                      Container(
+                                        width: ResponsiveRatio()
+                                            .width(context, 0.5),
                                         child: CustomPoppinsText(
-                                          text: "${Constdata.productDetail[index]['name']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 11,color: textColor,
-                                        ),),
-
+                                          text:
+                                              "${Constdata.productDetail[index]['name']}",
+                                          maxLine: 1,
+                                          textOverflow: TextOverflow.ellipsis,
+                                          fontSize: 11,
+                                          color: textColor,
+                                        ),
+                                      ),
                                       Row(
                                         children: [
                                           Icon(
@@ -639,9 +365,16 @@ class _MyStoreMobState extends State<MyStoreMob> {
                                           ),
                                           Container(
                                               child: Flexible(
-                                                child: CustomPoppinsText(
-                                                  text: "${Constdata.productDetail[index]['location']}",maxLine: 1,textOverflow: TextOverflow.ellipsis,fontSize: 11,color: textColor,
-                                                ),))
+                                            child: CustomPoppinsText(
+                                              text:
+                                                  "${Constdata.productDetail[index]['location']}",
+                                              maxLine: 1,
+                                              textOverflow:
+                                                  TextOverflow.ellipsis,
+                                              fontSize: 11,
+                                              color: textColor,
+                                            ),
+                                          ))
                                         ],
                                       ),
                                     ],
@@ -649,19 +382,17 @@ class _MyStoreMobState extends State<MyStoreMob> {
                                 ),
                               ),
                             ),
-                                Positioned(
-                                right: 20,
-                                top: 10,
-                                child: GestureDetector(
-                                  onTap: (){
-                                  },
-                                  child: CircleAvatar(
-                                      backgroundColor: Colors.white,
-                                      child: Icon(
-                                      Icons.favorite ,
-                                      )),
-                                ),
-
+                            Positioned(
+                              right: 20,
+                              top: 10,
+                              child: GestureDetector(
+                                onTap: () {},
+                                child: CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    child: Icon(
+                                      Icons.favorite,
+                                    )),
+                              ),
                             )
                           ]);
                         }),
@@ -676,6 +407,345 @@ class _MyStoreMobState extends State<MyStoreMob> {
   }
 }
 
+class MyStoreMob extends StatefulWidget {
+  const MyStoreMob({Key? key}) : super(key: key);
+
+  @override
+  State<MyStoreMob> createState() => _MyStoreMobState();
+}
+
+class _MyStoreMobState extends State<MyStoreMob> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Colors.orange,
+            statusBarIconBrightness: Brightness.light),
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Image.asset(
+          "asset/images/oonzoo.png",
+          height: ResponsiveRatio().height(context, 0.04),
+          // color: orangeColor,
+        ),
+        actions: [
+          Row(
+            children: [
+              Icon(Icons.location_on_outlined, color: Colors.black),
+              Container(
+                  width: ResponsiveRatio().width(context, 0.18),
+                  child: CustomPoppinsText(
+                    text: "Hindon Residence",
+                    fontSize: 15,
+                    maxLine: 1,
+                    textOverflow: TextOverflow.ellipsis,
+                    color: textColor,
+                  )),
+            ],
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                    child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0, right: 1),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.black,
+                          size: 30,
+                        ),
+                        hintText: "Find Car, Mobile Phone and more abhay",
+                        isDense: true,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8))),
+                  ),
+                )),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 8.0),
+                  child: Icon(
+                    Icons.notifications_outlined,
+                    size: 30,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: ResponsiveRatio().height(context, 0.3),
+              decoration: BoxDecoration(color: Color(0xFF1C73FD)),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      "asset/images/img1.gif",
+                      height: ResponsiveRatio().height(context, 0.12),
+                      width: double.infinity,
+                    ),
+                  ),
+                  Spacer(),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                            child: CustomButton1(
+                          text: "Buy Car",
+                          onTap: () {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => RecommendedCars()));
+                          },
+                        )),
+                        SizedBox(
+                          width: 18,
+                        ),
+                        Expanded(
+                            child: CustomButton1(
+                          text: "Sell Car",
+                          onTap: () {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => Sell()));
+                          },
+                        )),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              color: Colors.white,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomPoppinsText(
+                          text: "Browse categories",
+                          fontSize: 16,
+                        ),
+                        InkWell(
+                            onTap: () {
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => SeeAll()));
+                            },
+                            child: CustomPoppinsText(
+                              text: "See all",
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ))
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 8),
+                    child: Container(
+                      height: ResponsiveRatio().height(context, 0.14),
+                      child: ListView.builder(
+                          itemCount: Constdata.list.length,
+                          physics: ScrollPhysics(),
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(left: 8),
+                              child: GestureDetector(
+                                onTap: () {},
+                                child: Container(
+                                  width: ResponsiveRatio().width(context, 0.12),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        Constdata.list[index]['image']!,
+                                        height: ResponsiveRatio()
+                                            .height(context, 0.05),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      CustomPoppinsText(
+                                        text: Constdata.list[index]['name']!,
+                                        fontSize: 10,
+                                        textAlign: TextAlign.center,
+                                        maxLine: 2,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          }),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              color: Colors.white,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.only(left: 15, top: 20),
+                      child: CustomPoppinsText(
+                        text: "Fresh recommendation",
+                        fontSize: 18,
+                      )),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GridView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: Constdata.productDetail.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: Responsive.isLargeTab(context)
+                                ? 4
+                                : Responsive.isSmallTab(context)
+                                    ? 3
+                                    : 2,
+                            mainAxisExtent: Responsive.isLargeTab(context)
+                                ? 270
+                                : Responsive.isSmallTab(context)
+                                    ? 230
+                                    : Responsive.isMobile(context)
+                                        ? 210
+                                        : 220,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10),
+                        itemBuilder: (context, index) {
+                          return Stack(children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailedPage()));
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                        color: Colors.grey, width: 2)),
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 6, top: 5),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                          height: ResponsiveRatio()
+                                              .height(context, 0.12),
+                                          width: ResponsiveRatio()
+                                              .width(context, 1),
+                                          child: Image.asset(Constdata
+                                              .productDetail[index]['image'])),
+                                      SizedBox(
+                                        height: 8,
+                                      ),
+                                      CustomPoppinsText(
+                                        text:
+                                            "₹ ${Constdata.productDetail[index]['price']}",
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      Container(
+                                          child: CustomPoppinsText(
+                                        text:
+                                            "${Constdata.productDetail[index]['title']}",
+                                        maxLine: 1,
+                                        textOverflow: TextOverflow.ellipsis,
+                                        fontSize: 13,
+                                      )),
+                                      Container(
+                                        width: ResponsiveRatio()
+                                            .width(context, 0.5),
+                                        child: CustomPoppinsText(
+                                          text:
+                                              "${Constdata.productDetail[index]['name']}",
+                                          maxLine: 1,
+                                          textOverflow: TextOverflow.ellipsis,
+                                          fontSize: 11,
+                                          color: textColor,
+                                        ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            Icons.location_on_outlined,
+                                            size: 20,
+                                          ),
+                                          Container(
+                                              child: Flexible(
+                                            child: CustomPoppinsText(
+                                              text:
+                                                  "${Constdata.productDetail[index]['location']}",
+                                              maxLine: 1,
+                                              textOverflow:
+                                                  TextOverflow.ellipsis,
+                                              fontSize: 11,
+                                              color: textColor,
+                                            ),
+                                          ))
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              right: 20,
+                              top: 10,
+                              child: GestureDetector(
+                                onTap: () {},
+                                child: CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    child: Icon(
+                                      Icons.favorite,
+                                    )),
+                              ),
+                            )
+                          ]);
+                        }),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 class BrowseCategories {
   String? title;

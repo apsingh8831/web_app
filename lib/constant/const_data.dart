@@ -67,5 +67,39 @@ class Constdata{
     }
   ];
 
+  static List<Map<String, dynamic>> user = <Map<String, dynamic>>[
+  <String, dynamic>{
+  'id': '0',
+  'image': 'asset/images/u1.png',
+  'name': 'Harshit',
+  'title':"my name is harshit",
+  'time' : '7 July',
+    'isonline' : 'false'
+  },
+    <String, dynamic>{
+      'id': '1',
+      'image': 'asset/images/u2.png',
+      'name': 'Varun',
+      'title':"my name is Varun",
+      'time' : '8 July',
+      'isonline' : 'true'
+    },
+    <String, dynamic>{
+      'id': '2',
+      'image': 'asset/images/u3.png',
+      'name': 'Sunny',
+      'title':"my name is sunny",
+      'time' : '9 July',
+      'isonline' : 'true'
+    },
+    <String, dynamic>{
+      'id': '3',
+      'image': 'asset/images/u4.png',
+      'name': 'Jatin',
+      'title':"my name is jatin",
+      'time' : '10 July',
+      'isonline' : 'false'
+    },
+  ];
 
 }
