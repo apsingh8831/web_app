@@ -103,7 +103,6 @@ class _SellerchatState extends State<Sellerchat> {
                               icon: Icon(Icons.camera_alt_outlined,color: orangeColor,),
                               onPressed: () {
                                 getImage();
-
                               }
                           ),
                         ),

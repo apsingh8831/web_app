@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../Constant/customPoppinsText.dart';
+import '../sellerfield/properties.sale.dart';
 
 class ChooseCategoryitem extends StatefulWidget {
   final List myDataList;
@@ -29,7 +30,7 @@ class _ChooseCategoryitemState extends State<ChooseCategoryitem> {
           itemBuilder: (context,index){
             return ListTile(
               onTap: (){
-                 // Navigator.push(context, MaterialPageRoute(builder: (context)=>PropertiesSale()));
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>PropertiesSale()));
 
               },
               title: CustomPoppinsText(text: widget.myDataList[index],fontSize: 15,fontWeight: FontWeight.w400,)

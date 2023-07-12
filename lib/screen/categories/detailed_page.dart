@@ -169,7 +169,7 @@ class _DetailedPageState extends State<DetailedPage> {
               padding: const EdgeInsets.only(left: 12,),
               child:CustomPoppinsText(text:"₹ 5,10,000" ,fontSize: 17,fontWeight: FontWeight.w500,)
             ),
-            Padding(
+            Responsive(largeScreen: Padding(
               padding: const EdgeInsets.all(10),
               child: Container(
                 color: Colors.grey.withOpacity(0.1),
@@ -213,17 +213,17 @@ class _DetailedPageState extends State<DetailedPage> {
                         children: [
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                             children: [
-                               Icon(Icons.person_search_outlined,size: 18,),
-                               SizedBox(width: 5,),
-                               Column(
-                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                 children: [
-                                   Text("Manual",style: TextStyle(fontSize: 13),),
-                                   Text("1st",style: TextStyle(fontWeight: FontWeight.w600),)
-                                 ],
-                               ),
-                             ],
+                            children: [
+                              Icon(Icons.person_search_outlined,size: 18,),
+                              SizedBox(width: 5,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Manual",style: TextStyle(fontSize: 13),),
+                                  Text("1st",style: TextStyle(fontWeight: FontWeight.w600),)
+                                ],
+                              ),
+                            ],
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -260,7 +260,189 @@ class _DetailedPageState extends State<DetailedPage> {
                   ],
                 ),
               ),
-            ),
+            ),smallScreen: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Container(
+                color: Colors.grey.withOpacity(0.1),
+                child:Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.pages,size: 12,),
+                              SizedBox(width: 5,),
+                              Text("CNG & Hybrids",style: TextStyle(fontSize: 10),)
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.speed,size: 12,),
+                              SizedBox(width: 5,),
+                              Text("30000.0km",style: TextStyle(fontSize: 10),)
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.share_arrival_time_outlined,size: 12,),
+                              SizedBox(width: 5,),
+                              Text("Manual",style: TextStyle(fontSize: 10),)
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(Icons.person_search_outlined,size: 14,),
+                              SizedBox(width: 5,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Manual",style: TextStyle(fontSize: 10),),
+                                  Text("1st",style: TextStyle(fontWeight: FontWeight.w600),)
+                                ],
+                              ),
+                            ],
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(Icons.location_on_outlined,size: 18,),
+                              SizedBox(width: 5,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Dilshad Garden",style: TextStyle(fontSize: 10),),
+                                  Text("Dehli",style: TextStyle(fontWeight: FontWeight.w600),)
+                                ],
+                              ),
+                            ],
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(Icons.date_range,size: 18,),
+                              SizedBox(width: 5,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Posting date",style: TextStyle(fontSize: 10),),
+                                  Text("23-Jun-23",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 12),),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+
+                  ],
+                ),
+              ),
+            ),mediumScreen: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Container(
+                color: Colors.grey.withOpacity(0.1),
+                child:Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.pages,size: 16,),
+                              SizedBox(width: 5,),
+                              Text("CNG & Hybrids",style: TextStyle(fontSize: 13),)
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.speed,size: 16,),
+                              SizedBox(width: 5,),
+                              Text("30000.0km",style: TextStyle(fontSize: 13),)
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.share_arrival_time_outlined,size: 16,),
+                              SizedBox(width: 5,),
+                              Text("Manual",style: TextStyle(fontSize: 13),)
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(Icons.person_search_outlined,size: 18,),
+                              SizedBox(width: 5,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Manual",style: TextStyle(fontSize: 13),),
+                                  Text("1st",style: TextStyle(fontWeight: FontWeight.w600),)
+                                ],
+                              ),
+                            ],
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(Icons.location_on_outlined,size: 18,),
+                              SizedBox(width: 5,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Dilshad Garden",style: TextStyle(fontSize: 13),),
+                                  Text("Dehli",style: TextStyle(fontWeight: FontWeight.w600),)
+                                ],
+                              ),
+                            ],
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(Icons.date_range,size: 18,),
+                              SizedBox(width: 5,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Posting date",style: TextStyle(fontSize: 13),),
+                                  Text("23-Jun-23",style: TextStyle(fontWeight: FontWeight.w600),),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+
+                  ],
+                ),
+              ),
+            ),),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child:CustomPoppinsText(text:"Description" ,fontSize: 17,fontWeight: FontWeight.w500,)
@@ -325,7 +507,6 @@ class _DetailedPageState extends State<DetailedPage> {
                         padding: const EdgeInsets.only(left: 60,top: 15),
                         child: CustomPoppinsText(text: "See Profile",fontWeight: FontWeight.w500,),
                       ),
-
                     ],
                   ),
                 ),
@@ -347,24 +528,20 @@ class _DetailedPageState extends State<DetailedPage> {
                       child:CustomPoppinsText(text: "Dilshad Garden , Dehli",maxLine: 2,textOverflow: TextOverflow.ellipsis,fontSize: 15,)
                   ),
                  Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      child: GoogleMap(
-                       zoomControlsEnabled: false,
-                        onMapCreated: _onMapCreated,
-                        zoomGesturesEnabled: true,
-                        initialCameraPosition: CameraPosition(
-
-                          target: _center,
-                          zoom: 15
-                        ),
-                        markers: markers.values.toSet(),
+                  Container(
+                    child: GoogleMap(
+                     zoomControlsEnabled: false,
+                      onMapCreated: _onMapCreated,
+                      zoomGesturesEnabled: true,
+                      initialCameraPosition: CameraPosition(
+                        target: _center,
+                        zoom: 15
                       ),
-                      width: ResponsiveRatio().width(context, 0.16),
-                      height: ResponsiveRatio().height(context, 0.15),
-
+                      markers: markers.values.toSet(),
                     ),
+                    width: ResponsiveRatio().width(context, 0.14),
+                    height: ResponsiveRatio().height(context, 0.15),
+
                   )
                   
                 ],

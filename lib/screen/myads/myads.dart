@@ -251,7 +251,7 @@ class _MyAdsState extends State<MyAds> with TickerProviderStateMixin {
                                 ),
                               ),
                               SizedBox(
-                                height: 60,
+                                height: 30,
                               )
                             ],
                           ),

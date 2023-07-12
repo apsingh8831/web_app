@@ -3,19 +3,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:webapp_clone/screen/categories/detailed_page.dart';
+import 'package:webapp_clone/screen/sell/sell.dart';
 
 import '../../Constant/custom_button.dart';
 import '../Constant/customPoppinsText.dart';
 import '../constant/colors.dart';
 import '../constant/const_data.dart';
 import '../constant/resposive.dart';
-import '../model.dart';
+import 'categories/categories/categories.dart';
+import 'categories/recommended.dart';
+import 'categories/sellall.dart';
+import 'notification.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+
+
   @override
   Widget build(BuildContext context) {
+
     return Responsive.isDesktop(context)
         ? const MyStoreWebUI()
         : const MyStoreMob();
@@ -29,57 +36,7 @@ class MyStoreWebUI extends StatefulWidget {
 }
 
 class _MyStoreWebUIState extends State<MyStoreWebUI> {
-  List _listproperties = [
-    "For Sale:House & Apartments",
-    "For Rent:House & Apartment",
-    "Land & Plots",
-    "For Rent:Shops & Office",
-    "For Sale:Shops & Office",
-    "PG & Guest Houses",
-    "View All"
-  ];
-  List _listmobile = [
-    "Mobile Phones",
-    "Accessories",
-    "Tablet",
-    "View All",
-  ];
-  List _listjob = [
-    "Data entry & Back office",
-    "Sales & Marketing",
-    "BPO & Telecaller",
-    "Driver",
-    "Office Assistant",
-    "View All",
-  ];
-  List _listbike = [
-    "Motorcycles",
-    "Scooters",
-    "Spare Parts",
-    "Bicycles"
-        "View All",
-  ];
-  List _listelectronic = [
-    "TVs, Vedio-Audio",
-    "Kitchen & Other Appliances",
-    "Computers & laptop",
-    "Cameras & Lenses"
-        "Games & Entertainment",
-    "Fridge",
-  ];
-  List _listcommercial = [
-    "Commercial & Other Vehicles",
-    "Spare Parts",
-    "View all"
-  ];
-  List _listfurniture = [
-    "Sofa & Dining",
-    "Beds & Wardrobes",
-    "Home Decor & Garden",
-    "Kids Furnture",
-    "Other Household Items",
-    "View All",
-  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -177,10 +134,10 @@ class _MyStoreWebUIState extends State<MyStoreWebUI> {
                             child: CustomButton1(
                           text: "Buy Car",
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => RecommendedCars()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Recommended()));
                           },
                         )),
                         SizedBox(
@@ -190,10 +147,10 @@ class _MyStoreWebUIState extends State<MyStoreWebUI> {
                             child: CustomButton1(
                           text: "Sell Car",
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => Sell()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Sell()));
                           },
                         )),
                       ],
@@ -246,7 +203,9 @@ class _MyStoreWebUIState extends State<MyStoreWebUI> {
                             return Padding(
                               padding: const EdgeInsets.only(left: 8),
                               child: GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+
+                                },
                                 child: Container(
                                   width: ResponsiveRatio().width(context, 0.12),
                                   child: Column(
@@ -470,9 +429,14 @@ class _MyStoreMobState extends State<MyStoreMob> {
                 )),
                 Padding(
                   padding: const EdgeInsets.only(left: 8, right: 8.0),
-                  child: Icon(
-                    Icons.notifications_outlined,
-                    size: 30,
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> Notifications()));
+                    },
+                    child: Icon(
+                      Icons.notifications_outlined,
+                      size: 30,
+                    ),
                   ),
                 ),
               ],
@@ -507,10 +471,10 @@ class _MyStoreMobState extends State<MyStoreMob> {
                             child: CustomButton1(
                           text: "Buy Car",
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => RecommendedCars()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Recommended()));
                           },
                         )),
                         SizedBox(
@@ -520,10 +484,10 @@ class _MyStoreMobState extends State<MyStoreMob> {
                             child: CustomButton1(
                           text: "Sell Car",
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => Sell()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Sell()));
                           },
                         )),
                       ],
@@ -547,10 +511,10 @@ class _MyStoreMobState extends State<MyStoreMob> {
                         ),
                         InkWell(
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => SeeAll()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SeeAll()));
                             },
                             child: CustomPoppinsText(
                               text: "See all",
@@ -576,7 +540,75 @@ class _MyStoreMobState extends State<MyStoreMob> {
                             return Padding(
                               padding: const EdgeInsets.only(left: 8),
                               child: GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  if (index == 0) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                            const Recommended()));
+                                  } else if (index == 1) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Categories(
+                                              myDataList: Constdata.listproperty,
+                                              title: "Properties",
+                                            )));
+                                  } else if (index == 2) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Categories(
+                                              myDataList: Constdata.listmobile,
+                                              title: "Mobile",
+                                            )));
+                                  } else if (index == 3) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Categories(
+                                              myDataList: Constdata.listjob,
+                                              title: "Jobs",
+                                            )));
+                                  } else if (index == 4) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Categories(
+                                              myDataList: Constdata.listbike,
+                                              title: "Bike",
+                                            )));
+                                  } else if (index == 5) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Categories(
+                                              myDataList: Constdata.listelectronic,
+                                              title:
+                                              "Electronics & Appliances",
+                                            )));
+                                  } else if (index == 6) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Categories(
+                                              myDataList: Constdata.listcommercial,
+                                              title:
+                                              "Commercial Vehicles & Spares",
+                                            )));
+                                  } else if (index == 7) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Categories(
+                                              myDataList: Constdata.listfurniture,
+                                              title: "Furniture",
+                                            )));
+                                  } else {
+                                    return null;
+                                  }
+                                },
                                 child: Container(
                                   width: ResponsiveRatio().width(context, 0.12),
                                   child: Column(
