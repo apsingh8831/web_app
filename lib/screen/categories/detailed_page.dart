@@ -842,13 +842,11 @@ class _DetailedPageState extends State<DetailedPage> {
                                       const EdgeInsets.only(left: 8.0, top: 8),
                                   child: CustomPoppinsText(
                                     text: "₹ 1.10.000",
-                                    fontSize: 14,
+                                    fontSize: 12,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 5,
-                                ),
+
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       left: 8.0, right: 8),
@@ -857,7 +855,7 @@ class _DetailedPageState extends State<DetailedPage> {
                                       text: "Tata Indica Ev2",
                                       maxLine: 1,
                                       textOverflow: TextOverflow.ellipsis,
-                                      fontSize: 12,
+                                      fontSize: 10,
                                     ),
                                   ),
                                 ),
