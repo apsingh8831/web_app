@@ -9,6 +9,7 @@ import '../../Constant/customPoppinsText.dart';
 import '../../Constant/custom_button.dart';
 import '../../Constant/resposive.dart';
 import '../../constant/colors.dart';
+import '../sell/contactseller.dart';
 
 class DetailedPage extends StatefulWidget {
   const DetailedPage({Key? key}) : super(key: key);
@@ -55,7 +56,6 @@ class _DetailedPageState extends State<DetailedPage> {
   ];
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         extendBodyBehindAppBar:true,
       bottomSheet: Padding(
@@ -65,10 +65,9 @@ class _DetailedPageState extends State<DetailedPage> {
             Expanded(
               child: CustomButton1(
                 onTap: (){
-                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>ContactSeller()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ContactSeller()));
                 },
                 text: "Chat",
-
               )
               // CustomButton(
               //   onPressed: (){

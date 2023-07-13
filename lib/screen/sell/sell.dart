@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import '../../Constant/customPoppinsText.dart';
+import '../categories/chosse.category.dart';
+import 'car.auto.view.dart';
 import 'chosse.category.item.dart';
 
 class Sell extends StatefulWidget {
@@ -32,6 +33,8 @@ class _SellState extends State<Sell> {
   List _listCar=[
     "Cars"
   ];
+
+
   List _listproperties=[
     "For Sale:House & Apartments",
     "For Rent:House & Apartment",
@@ -39,14 +42,16 @@ class _SellState extends State<Sell> {
     "For Rent:Shops & Office",
     "For Sale:Shops & Office",
     "PG & Guest Houses",
-
   ];
+
+
   List _listmobile=[
     "Mobile Phones",
     "Accessories",
     "Tablet",
-
   ];
+
+
   List _listjob=[
     "Data entry & Back office",
     "Sales & Marketing",
@@ -106,7 +111,7 @@ class _SellState extends State<Sell> {
                 return GestureDetector(
                   onTap: (){
                     if(index==0){
-                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>CarAutoView()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>CarAutoView()));
                     }
                     else if(index==1){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>ChooseCategoryitem(myDataList: _listproperties,title: "Properties",)));
@@ -121,7 +126,7 @@ class _SellState extends State<Sell> {
                     }else if(index==6){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>ChooseCategoryitem(myDataList: _listcommercial,title: "Commercial Vehicles & Spares",)));
                     }else if(index==7){
-                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>ChosseCategory()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ChosseCategory()));
                     }
                     else {
                       return null;

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../../Constant/customPoppinsText.dart';
 import '../../Constant/resposive.dart';
 import '../../constant/colors.dart';
+import '../notification.dart';
 import 'detailed_page.dart';
 
 class Recommended extends StatefulWidget {
@@ -70,9 +71,14 @@ class _RecommendedState extends State<Recommended> {
                     )),
                 Padding(
                   padding: const EdgeInsets.only(left: 8, right: 8.0),
-                  child: Icon(
-                    Icons.notifications_outlined,
-                    size: 30,
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> Notifications()));
+                    },
+                    child: Icon(
+                      Icons.notifications_outlined,
+                      size: 30,
+                    ),
                   ),
                 ),
               ],

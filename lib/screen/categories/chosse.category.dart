@@ -1,0 +1,156 @@
+
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import '../../../Constant/customPoppinsText.dart';
+import '../../Constant/resposive.dart';
+import '../sell/car.auto.view.dart';
+import '../sell/chosse.category.item.dart';
+
+class ChosseCategory extends StatefulWidget {
+  const ChosseCategory({Key? key}) : super(key: key);
+
+  @override
+  State<ChosseCategory> createState() => _ChosseCategoryState();
+}
+
+class _ChosseCategoryState extends State<ChosseCategory> {
+
+  List<Invoice> _list=[
+    Invoice("OLX AUTOS(CARS)", Icon(Icons.arrow_forward_ios_outlined), "asset/images/auto.png"),
+    Invoice("PROPERTIES", Icon(Icons.arrow_forward_ios_outlined), "asset/images/property.png"),
+    Invoice("MOBILES", Icon(Icons.arrow_forward_ios_outlined), "asset/images/mob.png"),
+    Invoice("JOBS", Icon(Icons.arrow_forward_ios_outlined), "asset/images/jobs.png"),
+    Invoice("BIKE", Icon(Icons.arrow_forward_ios_outlined), "asset/images/bike.png"),
+    Invoice("ELECTRONICS & APPLIANCES", Icon(Icons.arrow_forward_ios_outlined) , "asset/images/elec.png"),
+    Invoice("COMMERCIAL VEHICLES & SPARES", Icon(Icons.arrow_forward_ios_outlined), "asset/images/cv.png"),
+  ];
+
+  List _listCar=[
+    "Cars"
+  ];
+
+  List _listproperties=[
+    "For Sale:House & Apartments",
+    "For Rent:House & Apartment",
+    "Land & Plots",
+    "For Rent:Shops & Office",
+    "For Sale:Shops & Office",
+    "PG & Guest Houses"
+  ];
+  List _listmobile=[
+    "Mobile Phones",
+    "Accessories",
+    "Tablet",
+
+  ];
+  List _listjob=[
+    "Data entry & Back office",
+    "Sales & Marketing",
+    "BPO & Telecaller",
+    "Driver",
+    "Office Assistant",
+
+  ];
+  List _listbike=[
+    "Motorcycles",
+    "Scooters",
+    "Spare Parts",
+    "Bicycles"
+
+  ];
+  List _listelectronic=[
+    "TVs, Vedio-Audio",
+    "Kitchen & Other Appliances",
+    "Computers & laptop",
+    "Cameras & Lenses"
+        "Games & Entertainment",
+
+  ];
+  List _listcommercial=[
+    "Commercial & Other Vehicles",
+    "Spare Parts",
+
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar:AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.orange,statusBarIconBrightness: Brightness.light),
+        title:CustomPoppinsText(text: "Choose a category",fontSize: 18,),
+        elevation: 5,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 15,top: 10),
+              child: CustomPoppinsText(text: "Previously selected category",fontSize: 15,),
+            ),
+            ListTile(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CarAutoView()));
+              },
+              title: CustomPoppinsText(text: "Cars",fontSize: 14,fontWeight: FontWeight.w600,),
+              subtitle:  CustomPoppinsText(text:"OLX Autos(Cars)"),
+            ),
+            Divider(),
+            ListView.builder(
+                shrinkWrap: true,
+                itemCount: _list.length,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (context,index){
+                  return Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: ListTile(
+                            onTap: (){
+                              if(index==0){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> CarAutoView()));
+                              }
+                              else if(index==1){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> ChooseCategoryitem(myDataList: _listproperties,title: "Properties",)));
+                              }else if(index==2){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ChooseCategoryitem(myDataList: _listmobile,title: "Mobiles",)));
+                              }else if(index==3){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> ChooseCategoryitem(myDataList: _listjob,title: "Jobs",)));
+                              }else if(index==4){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ChooseCategoryitem(myDataList: _listbike,title: "Bike",)));
+                              }else if(index==5){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ChooseCategoryitem(myDataList: _listelectronic,title: "Electronic & Appliaces",)));
+                              }else if(index==6){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ChooseCategoryitem(myDataList: _listcommercial,title: "Commercial Vehicles & Spares",)));
+                              }else if(index==7){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ChosseCategory()));
+                              }
+                              else {
+                                return null;
+                              }
+                            },
+                            dense: true,
+                            leading: Image.asset(_list[index].image.toString(),height: ResponsiveRatio().height(context, 0.05),),
+                            title: CustomPoppinsText(text:_list[index].title.toString(),fontWeight: FontWeight.w500,),
+                            trailing: Icon(_list[index].icon?.icon,size: 14,color: Colors.black,)
+                        ),
+                      ),
+                      Divider()
+                    ],
+                  );
+                }),
+          ],
+        ),
+      ),
+    );
+  }
+}
+class Invoice{
+  String? title;
+  Icon? icon;
+  String? image;
+
+  Invoice(this.title, this.icon,this.image);
+}

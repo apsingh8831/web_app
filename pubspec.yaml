@@ -44,7 +44,6 @@ dependencies:
   google_maps_flutter_web: ^0.5.1
   image_picker: ^0.8.9
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

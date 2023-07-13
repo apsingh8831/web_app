@@ -66,7 +66,7 @@ class _MyStoreWebUIState extends State<MyStoreWebUI> {
                 ),
                 child: TextField(
                   decoration: InputDecoration(
-                      contentPadding: EdgeInsets.only(bottom: 5),
+                      contentPadding: EdgeInsets.only(top: 6),
                       hintText: "Find Car, Mobile Phone and more",
                       prefixIcon: Icon(
                         Icons.search,
@@ -174,10 +174,10 @@ class _MyStoreWebUIState extends State<MyStoreWebUI> {
                         ),
                         InkWell(
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => SeeAll()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SeeAll()));
                             },
                             child: CustomPoppinsText(
                               text: "See all",

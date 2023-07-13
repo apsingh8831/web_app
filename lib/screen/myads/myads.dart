@@ -7,6 +7,9 @@ import '../../Constant/customPoppinsText.dart';
 import '../../Constant/custom_button.dart';
 import '../../Constant/resposive.dart';
 import '../../constant/colors.dart';
+import '../navigation/navigation.dart';
+import '../sell/sell.dart';
+import 'buypackage.dart';
 
 class MyAds extends StatefulWidget {
   const MyAds({Key? key}) : super(key: key);
@@ -137,10 +140,10 @@ class _MyAdsState extends State<MyAds> with TickerProviderStateMixin {
                               ),
                               CustomButton1(
                                   onTap: () {
-                                    // Navigator.push(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: (context) => Sell()));
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Sell()));
                                   },
                                   text: "Post",
                                   height:
@@ -234,11 +237,11 @@ class _MyAdsState extends State<MyAds> with TickerProviderStateMixin {
                                       ),
                                       CustomButton1(
                                         onTap: () {
-                                          // Navigator.push(
-                                          //     context,
-                                          //     MaterialPageRoute(
-                                          //         builder: (context) =>
-                                          //             BuyPackage()));
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      BuyPackage()));
                                         },
                                         text: "Show me Packages",
                                         width: ResponsiveRatio()
@@ -457,8 +460,8 @@ class _MyAdsState extends State<MyAds> with TickerProviderStateMixin {
           ),
           CustomButton1(
             onTap: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => Navigation()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Navigation()));
             },
             text: "Discover",
             width: ResponsiveRatio().width(context, 0.6),
