@@ -98,7 +98,6 @@ class _DetailedPageState extends State<DetailedPage> {
 
       appBar: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.orange,statusBarIconBrightness: Brightness.light),
-
         elevation: 1,
         backgroundColor: Colors.transparent,
         actions: [
@@ -540,9 +539,7 @@ class _DetailedPageState extends State<DetailedPage> {
                     ),
                     width: ResponsiveRatio().width(context, 0.14),
                     height: ResponsiveRatio().height(context, 0.15),
-
                   )
-                  
                 ],
               ),
             ),
@@ -563,7 +560,7 @@ class _DetailedPageState extends State<DetailedPage> {
               child: CustomPoppinsText(text: "Related Ads",fontSize: 15,fontWeight: FontWeight.w600,)
             ),
             SizedBox(
-              height: ResponsiveRatio().height(context, 0.25),
+              height: ResponsiveRatio().height(context, 0.26),
               child: ListView.builder(
                   itemCount: 4,
                   shrinkWrap: true,
@@ -575,7 +572,7 @@ class _DetailedPageState extends State<DetailedPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: GestureDetector(
                               onTap: (){
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>DetailedPage()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailedPage()));
                               },
                               child: Container(
                                 width: ResponsiveRatio().width(context, 0.16),
