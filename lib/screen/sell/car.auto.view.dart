@@ -122,8 +122,8 @@ class _CarAutoViewState extends State<CarAutoView> {
                             children: [
                               SizedBox(height: 10,),
                               Icon(Icons.drive_eta_outlined,size: 60,),
-                              CustomPoppinsText(text: "Auto-fill details",fontSize: 18,fontWeight: FontWeight.w500,textAlign: TextAlign.center,),
-                              CustomPoppinsText(text: "FILL IN DETAILS BY GIVING YOUR NUMBER",maxLine: 2,textOverflow: TextOverflow.ellipsis,textAlign: TextAlign.center,)
+                              CustomPoppinsText(text: "Auto-fill details",fontSize: 15,fontWeight: FontWeight.w500,textAlign: TextAlign.center,),
+                              CustomPoppinsText(text: "FILL IN DETAILS BY GIVING YOUR NUMBER",maxLine: 2,textOverflow: TextOverflow.ellipsis,textAlign: TextAlign.center,fontSize: 12,)
                             ],
                           ),
                         ),
@@ -137,7 +137,7 @@ class _CarAutoViewState extends State<CarAutoView> {
                             setState(() {
                               index = value!;
                             });
-                          })
+                          }),
                     ]
                   ),
                 ),
@@ -168,8 +168,8 @@ class _CarAutoViewState extends State<CarAutoView> {
                             children: [
                               SizedBox(height: 10,),
                               Icon(Icons.drive_eta_outlined,size: 60,),
-                              CustomPoppinsText(text: "Auto-fill details",fontSize: 18,fontWeight: FontWeight.w500,textAlign: TextAlign.center,),
-                              CustomPoppinsText(text: "FILL IN DETAILS BY GIVING YOUR NUMBER",maxLine: 2,textOverflow: TextOverflow.ellipsis,textAlign: TextAlign.center,)
+                              CustomPoppinsText(text: "Auto-fill details",fontSize: 15,fontWeight: FontWeight.w500,textAlign: TextAlign.center,),
+                              CustomPoppinsText(text: "FILL IN DETAILS BY GIVING YOUR NUMBER",maxLine: 2,textOverflow: TextOverflow.ellipsis,textAlign: TextAlign.center,fontSize: 12,)
                             ],
                           ),
                         ),
@@ -184,146 +184,13 @@ class _CarAutoViewState extends State<CarAutoView> {
                               index = value!;
                             });
                           })
-
-    ]
+                      ]
                   ),
                 ),
               ),
             ],
           )
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Stack(children: [
-          //       GestureDetector(
-          //         onTap: () {
-          //           setState(() {
-          //             index = 0!;
-          //           });
-          //         },
-          //         child: Expanded(
-          //           child: Container(
-          //             decoration: BoxDecoration(
-          //                 borderRadius: BorderRadius.circular(5),
-          //                 border: Border.all(
-          //                     color: index == 0
-          //                         ? Color(0xFF0DCE83)
-          //                         : Colors.grey.withOpacity(0.3),
-          //                     width: 2)),
-          //             child: Padding(
-          //               padding: const EdgeInsets.all(10),
-          //               child: Expanded(
-          //                 child: Column(
-          //                   mainAxisAlignment: MainAxisAlignment.center,
-          //                   children: [
-          //                     SizedBox(
-          //                       height: 8,
-          //                     ),
-          //                     Icon(
-          //                       Icons.drive_eta_outlined,
-          //                       size: 50,
-          //                     ),
-          //                     SizedBox(
-          //                       height: 8,
-          //                     ),
-          //                     CustomPoppinsText(
-          //                       text: "Auto-fill details",
-          //                       fontWeight: FontWeight.w600,
-          //                       fontSize: 15,
-          //                     ),
-          //                     SizedBox(
-          //                       height: 10,
-          //                     ),
-          //                     CustomPoppinsText(
-          //                       text:
-          //                           "FILL IN DETAILS BY GIVING YOUR CAR NUMBER",
-          //                       fontSize: 10,
-          //                       textOverflow: TextOverflow.ellipsis,
-          //                       maxLine: 2,
-          //                       textAlign: TextAlign.center,
-          //                     ),
-          //                   ],
-          //                 ),
-          //               ),
-          //             ),
-          //           ),
-          //         ),
-          //       ),
-          //       Radio(
-          //           activeColor: Color(0xFF1E342D),
-          //           value: 0,
-          //           groupValue: index,
-          //           onChanged: (value) {
-          //             setState(() {
-          //               index = value!;
-          //             });
-          //           })
-          //     ]),
-          //     Stack(children: [
-          //       GestureDetector(
-          //         onTap: () {
-          //           setState(() {
-          //             index = 1!;
-          //           });
-          //         },
-          //         child: Expanded(
-          //           child: Container(
-          //             decoration: BoxDecoration(
-          //                 borderRadius: BorderRadius.circular(5),
-          //                 border: Border.all(
-          //                     color: index == 0
-          //                         ? Color(0xFF0DCE83)
-          //                         : Colors.grey.withOpacity(0.3),
-          //                     width: 2)),
-          //             child: Padding(
-          //               padding: const EdgeInsets.all(10),
-          //               child: Expanded(
-          //                 child: Column(
-          //                   mainAxisAlignment: MainAxisAlignment.center,
-          //                   children: [
-          //                     SizedBox(
-          //                       height: 8,
-          //                     ),
-          //                     Icon(
-          //                       Icons.drive_eta_outlined,
-          //                       size: 50,
-          //                     ),
-          //                     SizedBox(
-          //                       height: 8,
-          //                     ),
-          //                     CustomPoppinsText(
-          //                       text: "Auto-fill details",
-          //                       fontWeight: FontWeight.w600,
-          //                       fontSize: 15,
-          //                     ),
-          //                     SizedBox(
-          //                       height: 10,
-          //                     ),
-          //                     CustomPoppinsText(
-          //                       text:
-          //                       "FILL IN DETAILS BY GIVING YOUR CAR NUMBER",
-          //                       fontSize: 10,
-          //                       textAlign: TextAlign.center,
-          //                     ),
-          //                   ],
-          //                 ),
-          //               ),
-          //             ),
-          //           ),
-          //         ),
-          //       ),
-          //       Radio(
-          //           activeColor: Color(0xFF1E342D),
-          //           value: 1,
-          //           groupValue: index,
-          //           onChanged: (value) {
-          //             setState(() {
-          //               index = value!;
-          //             });
-          //           })
-          //     ])
-          //   ],
-          // )
+
         ],
       ),
     );

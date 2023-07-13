@@ -18,8 +18,6 @@ import 'notification.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-
-
   @override
   Widget build(BuildContext context) {
 
@@ -36,7 +34,6 @@ class MyStoreWebUI extends StatefulWidget {
 }
 
 class _MyStoreWebUIState extends State<MyStoreWebUI> {
-
 
   @override
   Widget build(BuildContext context) {
